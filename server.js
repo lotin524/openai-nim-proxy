@@ -10,6 +10,25 @@ const PORT = process.env.PORT || 3000;
 app.use(cors());
 app.use(express.json());
 
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({
+    status: 'ok',
+    service: 'OpenAI to NVIDIA NIM Proxy'
+  });
+});
+
+// /v1 endpoint
+app.get('/v1', (req, res) => {
+  res.json({
+    status: 'ok',
+    endpoints: [
+      '/v1/models',
+      '/v1/chat/completions'
+    ]
+  });
+});
+
 // NVIDIA NIM API configuration
 const NIM_API_BASE = process.env.NIM_API_BASE || 'https://integrate.api.nvidia.com/v1';
 const NIM_API_KEY = process.env.NIM_API_KEY;
