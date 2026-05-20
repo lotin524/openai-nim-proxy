@@ -11,7 +11,7 @@ services:
       - key: NIM_API_BASE
         value: https://integrate.api.nvidia.com/v1
       - key: SHOW_REASONING
-        value: false
+        value: true
       - key: ENABLE_THINKING_MODE
-        value: false
+        value: true
     healthCheckPath: /health
